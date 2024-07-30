@@ -12,6 +12,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
                         alt={product.title}
                         width={300}
                         height={300}
+                        quality={50}
                         className="max-w-full max-h-full object-contain transition duration-300 ease-in-out group-hover:opacity-75"
                     />
                 </div>
