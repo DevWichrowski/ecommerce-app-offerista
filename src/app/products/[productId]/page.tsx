@@ -1,6 +1,16 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getProductById } from "@/app/api/api";
+import {getAllProducts, getProductById} from "@/app/api/api";
+
+
+export const revalidate = 3600;
+
+export const generateStaticParams= async() => {
+    const products = await getAllProducts();
+    return products.map((product) => ({
+        productId: product.id.toString(),
+    }));
+}
 
 export const generateMetadata = async ({ params }: { params: { productId: string } }) => {
     const product = await getProductById(parseInt(params.productId));

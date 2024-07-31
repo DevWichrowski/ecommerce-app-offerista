@@ -1,6 +1,8 @@
 import {getAllProducts} from "@/app/api/api";
 import ProductList from "@/app/components/ProductList";
 
+export const revalidate = 3600;
+
 export const metadata = {
     title: 'Products | E-commerce Store',
     description: 'View all our available products',
