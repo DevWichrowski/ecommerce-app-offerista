@@ -1,8 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import {useUser} from "@/contexts/UserContext";
 
 const Nav = () => {
+    const user = useUser();
+
     return (
         <nav className="sticky top-0 z-10 bg-white shadow-md bg-gradient-to-br from-blue-100 to-purple-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,9 +24,8 @@ const Nav = () => {
                               className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
                             Cart (0)
                         </Link>
-                        <Link href="/login"
-                              className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                            Login
+                        <Link href="/user" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                            {user?.name.firstname} {user?.name.lastname}
                         </Link>
                     </div>
                 </div>
