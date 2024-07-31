@@ -2,9 +2,13 @@
 
 import Link from 'next/link';
 import {useUser} from "@/contexts/UserContext";
+import {useCart} from "@/contexts/CartContext";
 
 const Nav = () => {
     const user = useUser();
+    const cart = useCart();
+
+    const itemsCount = cart?.products.reduce((total, item) => total + item.quantity, 0) || 0;
 
     return (
         <nav className="sticky top-0 z-10 bg-white shadow-md bg-gradient-to-br from-blue-100 to-purple-100">
@@ -20,9 +24,8 @@ const Nav = () => {
                               className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
                             Products
                         </Link>
-                        <Link href="/cart"
-                              className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                            Cart (0)
+                        <Link href="/cart" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                            Cart ({itemsCount})
                         </Link>
                         <Link href="/user" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
                             {user?.name.firstname} {user?.name.lastname}

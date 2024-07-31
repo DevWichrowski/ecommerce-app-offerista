@@ -1,5 +1,7 @@
 import { IProduct } from '../types/product';
 import { IUser } from "@/app/types/user";
+import {ICart} from "@/app/types/cart";
+import {USER_ID} from "@/constants";
 
 const API_URL = 'https://fakestoreapi.com';
 
@@ -24,10 +26,20 @@ export const getProductById = async (id: number): Promise<IProduct> => {
 }
 
 export const getUser = async (): Promise<IUser> => {
-    const response = await fetch(`${API_URL}/users/1`);
+    const response = await fetch(`${API_URL}/users/${USER_ID}`);
 
     if (!response.ok) {
         throw new Error('Failed to fetch user');
     }
+    return response.json();
+}
+
+export const getCart = async (): Promise<ICart> => {
+    const response = await fetch(`${API_URL}/carts/${USER_ID}`);
+
+    if (!response.ok){
+        throw new Error('Failed to fetch cart');
+    }
+
     return response.json();
 }
