@@ -2,15 +2,15 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import CartContent from './CartContent';
 import {useCart} from "@/contexts/CartContext";
-import {useFetchCartItemsWithDetails} from "@/hooks/useFetchCartItemsWithDetails";
+import {useFetchAndMergeCartItemsWithDetails} from "@/hooks/useFetchAndMergeCartItemsWithDetails";
 
 jest.mock("@/contexts/CartContext");
-jest.mock("@/hooks/useFetchCartItemsWithDetails");
+jest.mock("@/hooks/useFetchAndMergeCartItemsWithDetails");
 
 describe('CartContent', () => {
     it('renders the cart title when cart is empty', () => {
         (useCart as jest.Mock).mockReturnValue({});
-        (useFetchCartItemsWithDetails as jest.Mock).mockReturnValue([]);
+        (useFetchAndMergeCartItemsWithDetails as jest.Mock).mockReturnValue([]);
 
         render(<CartContent />);
 
@@ -19,7 +19,7 @@ describe('CartContent', () => {
 
     it('displays the empty cart message when cart is empty', () => {
         (useCart as jest.Mock).mockReturnValue({});
-        (useFetchCartItemsWithDetails as jest.Mock).mockReturnValue([]);
+        (useFetchAndMergeCartItemsWithDetails as jest.Mock).mockReturnValue([]);
 
         render(<CartContent />);
 
@@ -28,7 +28,7 @@ describe('CartContent', () => {
 
     it('renders the cart title when cart has items', () => {
         (useCart as jest.Mock).mockReturnValue({});
-        (useFetchCartItemsWithDetails as jest.Mock).mockReturnValue([{
+        (useFetchAndMergeCartItemsWithDetails as jest.Mock).mockReturnValue([{
             productId: '1',
             quantity: 2,
             product: {
@@ -46,7 +46,7 @@ describe('CartContent', () => {
 
     it('renders the cart items list when cart has items', () => {
         (useCart as jest.Mock).mockReturnValue({});
-        (useFetchCartItemsWithDetails as jest.Mock).mockReturnValue([{
+        (useFetchAndMergeCartItemsWithDetails as jest.Mock).mockReturnValue([{
             productId: '1',
             quantity: 2,
             product: {
@@ -64,7 +64,7 @@ describe('CartContent', () => {
 
     it('renders the correct cart item when cart has items', () => {
         (useCart as jest.Mock).mockReturnValue({});
-        (useFetchCartItemsWithDetails as jest.Mock).mockReturnValue([{
+        (useFetchAndMergeCartItemsWithDetails as jest.Mock).mockReturnValue([{
             productId: '1',
             quantity: 2,
             product: {
@@ -82,7 +82,7 @@ describe('CartContent', () => {
 
     it('displays the correct item title when cart has items', () => {
         (useCart as jest.Mock).mockReturnValue({});
-        (useFetchCartItemsWithDetails as jest.Mock).mockReturnValue([{
+        (useFetchAndMergeCartItemsWithDetails as jest.Mock).mockReturnValue([{
             productId: '1',
             quantity: 2,
             product: {
@@ -100,7 +100,7 @@ describe('CartContent', () => {
 
     it('displays the correct item total price when cart has items', () => {
         (useCart as jest.Mock).mockReturnValue({});
-        (useFetchCartItemsWithDetails as jest.Mock).mockReturnValue([{
+        (useFetchAndMergeCartItemsWithDetails as jest.Mock).mockReturnValue([{
             productId: '1',
             quantity: 2,
             product: {
@@ -118,7 +118,7 @@ describe('CartContent', () => {
 
     it('displays the correct item category when cart has items', () => {
         (useCart as jest.Mock).mockReturnValue({});
-        (useFetchCartItemsWithDetails as jest.Mock).mockReturnValue([{
+        (useFetchAndMergeCartItemsWithDetails as jest.Mock).mockReturnValue([{
             productId: '1',
             quantity: 2,
             product: {
@@ -136,7 +136,7 @@ describe('CartContent', () => {
 
     it('displays the correct item quantity when cart has items', () => {
         (useCart as jest.Mock).mockReturnValue({});
-        (useFetchCartItemsWithDetails as jest.Mock).mockReturnValue([{
+        (useFetchAndMergeCartItemsWithDetails as jest.Mock).mockReturnValue([{
             productId: '1',
             quantity: 2,
             product: {
@@ -154,7 +154,7 @@ describe('CartContent', () => {
 
     it('displays the correct cart subtotal when cart has items', () => {
         (useCart as jest.Mock).mockReturnValue({});
-        (useFetchCartItemsWithDetails as jest.Mock).mockReturnValue([{
+        (useFetchAndMergeCartItemsWithDetails as jest.Mock).mockReturnValue([{
             productId: '1',
             quantity: 2,
             product: {
@@ -172,7 +172,7 @@ describe('CartContent', () => {
 
     it('renders the checkout button when cart has items', () => {
         (useCart as jest.Mock).mockReturnValue({});
-        (useFetchCartItemsWithDetails as jest.Mock).mockReturnValue([{
+        (useFetchAndMergeCartItemsWithDetails as jest.Mock).mockReturnValue([{
             productId: '1',
             quantity: 2,
             product: {
@@ -190,7 +190,7 @@ describe('CartContent', () => {
 
     it('does not render anything when cart is null', () => {
         (useCart as jest.Mock).mockReturnValue(null);
-        (useFetchCartItemsWithDetails as jest.Mock).mockReturnValue([]);
+        (useFetchAndMergeCartItemsWithDetails as jest.Mock).mockReturnValue([]);
 
         const {container} = render(<CartContent />);
 

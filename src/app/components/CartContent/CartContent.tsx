@@ -2,12 +2,12 @@
 
 import Image from 'next/image';
 import {useCart} from "@/contexts/CartContext";
-import {useFetchCartItemsWithDetails} from "@/hooks/useFetchCartItemsWithDetails";
+import {useFetchAndMergeCartItemsWithDetails} from "@/hooks/useFetchAndMergeCartItemsWithDetails";
 import {useState, useEffect} from 'react';
 
 const CartContent = () => {
     const cart = useCart();
-    const cartItemsWithDetails = useFetchCartItemsWithDetails(cart);
+    const cartItemsWithDetails = useFetchAndMergeCartItemsWithDetails(cart);
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {

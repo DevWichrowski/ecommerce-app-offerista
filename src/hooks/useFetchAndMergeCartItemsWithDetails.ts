@@ -3,8 +3,7 @@ import {ICartItem, ICartItemWithDetails} from "@/app/types/cart";
 import {getProductById} from "@/app/api/api";
 
 
-
-export const useFetchCartItemsWithDetails = (cart: { products: ICartItem[] } | null) => {
+export const useFetchAndMergeCartItemsWithDetails = (cart: { products: ICartItem[] } | null) => {
     const [cartItemsWithDetails, setCartItemsWithDetails] = useState<ICartItemWithDetails[]>([]);
 
     useEffect(() => {

@@ -1,5 +1,5 @@
 import {renderHook, act} from '@testing-library/react-hooks';
-import {useFetchCartItemsWithDetails} from './useFetchCartItemsWithDetails';
+import {useFetchAndMergeCartItemsWithDetails} from './useFetchAndMergeCartItemsWithDetails';
 import {getProductById} from "@/app/api/api";
 
 jest.mock("@/app/api/api", () => ({
@@ -8,13 +8,13 @@ jest.mock("@/app/api/api", () => ({
 
 describe('useFetchCartItemsWithDetails', () => {
     it('initially returns an empty array when cart is null', () => {
-        const {result} = renderHook(() => useFetchCartItemsWithDetails(null));
+        const {result} = renderHook(() => useFetchAndMergeCartItemsWithDetails(null));
 
         expect(result.current).toEqual([]);
     });
 
     it('returns an empty array after update when cart is null', async () => {
-        const {result, waitForNextUpdate} = renderHook(() => useFetchCartItemsWithDetails(null));
+        const {result, waitForNextUpdate} = renderHook(() => useFetchAndMergeCartItemsWithDetails(null));
 
         await act(async () => {
             await waitForNextUpdate({timeout: 100}).catch(() => {
@@ -32,7 +32,7 @@ describe('useFetchCartItemsWithDetails', () => {
             ]
         };
 
-        const {result} = renderHook(() => useFetchCartItemsWithDetails(mockCart));
+        const {result} = renderHook(() => useFetchAndMergeCartItemsWithDetails(mockCart));
 
         expect(result.current).toEqual([]);
     });
@@ -54,7 +54,7 @@ describe('useFetchCartItemsWithDetails', () => {
             Promise.resolve(mockProducts.find(p => p.id === id))
         );
 
-        const {result, waitForNextUpdate} = renderHook(() => useFetchCartItemsWithDetails(mockCart));
+        const {result, waitForNextUpdate} = renderHook(() => useFetchAndMergeCartItemsWithDetails(mockCart));
 
         await act(async () => {
             await waitForNextUpdate();
@@ -76,7 +76,7 @@ describe('useFetchCartItemsWithDetails', () => {
 
         (getProductById as jest.Mock).mockResolvedValue({});
 
-        renderHook(() => useFetchCartItemsWithDetails(mockCart));
+        renderHook(() => useFetchAndMergeCartItemsWithDetails(mockCart));
 
         await act(async () => {
             await new Promise(resolve => setTimeout(resolve, 0));
@@ -95,7 +95,7 @@ describe('useFetchCartItemsWithDetails', () => {
 
         (getProductById as jest.Mock).mockResolvedValue({});
 
-        renderHook(() => useFetchCartItemsWithDetails(mockCart));
+        renderHook(() => useFetchAndMergeCartItemsWithDetails(mockCart));
 
         await act(async () => {
             await new Promise(resolve => setTimeout(resolve, 0));
