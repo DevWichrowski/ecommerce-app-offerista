@@ -30,10 +30,10 @@ export default async function RootLayout({
         <body className={inter.className}>
         <UserProvider user={user}>
             <CartProvider cart={cart}>
-            <Nav />
-            <main className="mx-auto">
-                {children}
-            </main>
+                <Nav />
+                <main className="mx-auto">
+                    {children}
+                </main>
             </CartProvider>
         </UserProvider>
         </body>

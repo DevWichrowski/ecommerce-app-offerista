@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import FeatureCard from "@/app/components/FeatureCard";
+import FeatureCard from "@/app/components/FeatureCard/FeatureCard";
 
 const Home = () => {
     return (
