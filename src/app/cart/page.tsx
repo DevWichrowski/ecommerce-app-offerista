@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import CartContent from "@/app/components/CartContent";
+import CartContent from "@/app/components/CartContent/CartContent";
 
 export const revalidate = 3600;
 

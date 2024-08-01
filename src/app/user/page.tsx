@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import UserContent from "@/app/components/UserContent";
+import UserContent from "@/app/components/UserContent/UserContent";
 
 export const revalidate = 3600;
 
