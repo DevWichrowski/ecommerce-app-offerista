@@ -2,10 +2,10 @@ import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import './globals.css'
 import {getCart, getUser} from "@/app/api/api";
-import Nav from "@/app/components/Nav";
 import {UserProvider} from "@/contexts/UserContext";
 import {CartProvider} from "@/contexts/CartContext";
 import {ReactNode} from "react";
+import Nav from "@/app/components/Nav/Nav";
 
 const inter = Inter({subsets: ['latin']})
 

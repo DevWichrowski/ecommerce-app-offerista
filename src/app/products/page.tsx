@@ -1,5 +1,5 @@
 import {getAllProducts} from "@/app/api/api";
-import ProductList from "@/app/components/ProductList";
+import ProductList from "@/app/components/ProductList/ProductList";
 
 export const revalidate = 3600;
 
