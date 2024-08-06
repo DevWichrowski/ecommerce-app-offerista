@@ -29,7 +29,7 @@ Welcome to the E-commerce App, a challenge project for Offerista!
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/ecommerce-app-offerista.git
+   git clone https://github.com/devwichrowski/ecommerce-app-offerista.git
    cd ecommerce-app-offerista
    ```
 
